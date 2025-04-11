@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>yappertron</title>
+  <title>Yappertron</title>
   <style>
     /* Base Styles */
     body {
@@ -16,7 +16,7 @@
       align-items: center;
       height: 100vh;
       position: relative;
-      background-image: url('https://example.com/sky-background.png'); /* Add a cute sky background */
+      background-image: url('https://example.com/sky-background.png');
       background-size: cover;
     }
 
@@ -34,34 +34,6 @@
       animation: bounce 2s infinite ease-in-out;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    /* Buttons */
-    .btn {
-      padding: 20px 40px;
-      font-size: 1.5em;
-      background-color: #ff99cc;
-      border: 3px solid #ff66cc;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: 'Pacifico', cursive;
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
-    }
-
-    .btn:active {
-      transform: scale(0.9);
-    }
-
     /* Game Screen */
     #game-screen {
       position: relative;
@@ -72,14 +44,14 @@
       overflow: hidden;
     }
 
-    /* Chibi Character */
+    /* Character */
     #character {
       position: absolute;
       bottom: 30px;
       left: 50%;
       width: 120px;
       height: 120px;
-      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6d7f36bb-ed8d-4c4f-af0f-5d6c03c94bdd/defpaij-1c7af91b-e10f-4f04-b624-e2da68acf4f9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZkN2YzNmJiLWVkOGQtNGM0Zi1hZjBmLTVkNmMwM2M5NGJkZFwvZGVmcGFpai0xYzdhZjkxYi1lMTBmLTRmMDQtYjYyNC1lMmRhNjhhY2Y0ZjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.TghPblTxfsB98C2uqxfLBi48ES8GGuAi4bgXwW_8rto'); /* Replace with your image */
+      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6d7f36bb-ed8d-4c4f-af0f-5d6c03c94bdd/defpaij-1c7af91b-e10f-4f04-b624-e2da68acf4f9.png');
       background-size: cover;
       border-radius: 50%;
       animation: jump 1.5s infinite ease-in-out;
@@ -92,7 +64,7 @@
       left: 50%;
       width: 40px;
       height: 40px;
-      background-image: url('https://png.pngtree.com/recommend-works/png-clipart/20250115/ourmid/pngtree-a-cute-expression-sushi-png-image_15179224.png'); /* Replace with your image */
+      background-image: url('https://png.pngtree.com/recommend-works/png-clipart/20250115/ourmid/pngtree-a-cute-expression-sushi-png-image_15179224.png');
       background-size: cover;
       box-shadow: 0 0 10px #ffcc00;
       animation: foodFall 4s infinite linear;
@@ -108,52 +80,41 @@
       font-family: 'Pacifico', cursive;
     }
 
-    /* Instructions and Credits Sections */
-    .section {
-      display: none;
+    /* Game Over Screen */
+    #game-over {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      width: 70%;
-      max-width: 600px;
       text-align: center;
+      display: none;
     }
 
-    .section h2 {
-      color: #ff66cc;
-    }
-
-    .section p {
-      font-size: 1.2em;
-      color: #444;
-    }
-
-    /* Animation for Falling Food */
-    @keyframes foodFall {
-      0% { top: -50px; }
-      100% { top: 100vh; }
-    }
-
-    /* Game Exit Button */
-    #exit-btn {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background-color: #ff6666;
-      border-radius: 15px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
+    /* Game Over Buttons */
+    .game-over-btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1.5em;
+      background-color: #ff99cc;
+      border: 2px solid #ff66cc;
+      border-radius: 10px;
       cursor: pointer;
     }
 
+    .game-over-btn:hover {
+      background-color: #ff66cc;
+      color: white;
+    }
+
+    /* Sound Effects */
+    <audio id="eat-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
   </style>
 </head>
 <body>
+
   <!-- Title Screen -->
   <div id="title-screen">
     <h1 id="title">Yappertron: Let Me Eat</h1>
@@ -162,83 +123,64 @@
     <button id="credits-btn" class="btn">Credits</button>
   </div>
 
-  <!-- Instructions Section -->
-  <div id="instructions-section" class="section">
-    <h2>How to Play</h2>
-    <p>Use <strong>A</strong> to move left and <strong>D</strong> to move right.</p>
-    <p>Your goal is to catch the falling food and score points! Avoid missing too many food items.</p>
-    <button class="btn" id="back-btn">Back</button>
-  </div>
-
-  <!-- Credits Section -->
-  <div id="credits-section" class="section">
-    <h2>Credits</h2>
-    <p>Game created by <strong>Your Name</strong>.</p>
-    <p>Images provided by <strong>Image Provider</strong>.</p>
-    <button class="btn" id="back-btn-credits">Back</button>
-  </div>
-
   <!-- Game Screen -->
   <div id="game-screen">
     <div id="character"></div>
     <div id="food"></div>
     <div id="score">Score: 0</div>
-    <button id="exit-btn">Exit to Main Screen</button>
   </div>
 
-  <!-- Sound Effects -->
-  <audio id="eat-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+  <!-- Game Over Screen -->
+  <div id="game-over">
+    <h2>Game Over!</h2>
+    <p>Your score: <span id="final-score">0</span></p>
+    <button class="game-over-btn" id="restart-btn">Restart</button>
+    <button class="game-over-btn" id="main-screen-btn">Main Screen</button>
+    <button class="game-over-btn" id="exit-btn">Exit</button>
+  </div>
 
   <script>
-    // Title screen buttons
     const startButton = document.getElementById("start-btn");
     const instructionsButton = document.getElementById("instructions-btn");
     const creditsButton = document.getElementById("credits-btn");
-
-    const instructionsSection = document.getElementById("instructions-section");
-    const creditsSection = document.getElementById("credits-section");
     const gameScreen = document.getElementById("game-screen");
-
-    const backButton = document.getElementById("back-btn");
-    const backButtonCredits = document.getElementById("back-btn-credits");
-
     const scoreDisplay = document.getElementById("score");
     const food = document.getElementById("food");
     const chibi = document.getElementById("character");
-    const eatSound = document.getElementById("eat-sound");
+    const gameOverScreen = document.getElementById("game-over");
+    const finalScore = document.getElementById("final-score");
+    const restartButton = document.getElementById("restart-btn");
+    const mainScreenButton = document.getElementById("main-screen-btn");
     const exitButton = document.getElementById("exit-btn");
 
     let score = 0;
+    let missedFoods = 0;
     let chibiX = window.innerWidth / 2 - 60;
     let chibiY = window.innerHeight - 150;
 
-    // Show the game screen
     startButton.addEventListener("click", () => {
       document.getElementById("title-screen").style.display = "none";
       gameScreen.style.display = "block";
       startGame();
     });
 
-    // Show Instructions
-    instructionsButton.addEventListener("click", () => {
-      instructionsSection.style.display = "block";
+    restartButton.addEventListener("click", () => {
+      missedFoods = 0;
+      score = 0;
+      scoreDisplay.innerText = "Score: " + score;
+      gameOverScreen.style.display = "none";
+      startGame();
     });
 
-    // Show Credits
-    creditsButton.addEventListener("click", () => {
-      creditsSection.style.display = "block";
+    mainScreenButton.addEventListener("click", () => {
+      gameOverScreen.style.display = "none";
+      document.getElementById("title-screen").style.display = "block";
     });
 
-    // Back buttons for instructions and credits
-    backButton.addEventListener("click", () => {
-      instructionsSection.style.display = "none";
+    exitButton.addEventListener("click", () => {
+      window.close();
     });
 
-    backButtonCredits.addEventListener("click", () => {
-      creditsSection.style.display = "none";
-    });
-
-    // Start the game logic
     function startGame() {
       resetFood();
       let foodInterval = setInterval(() => {
@@ -249,16 +191,17 @@
         const foodRect = food.getBoundingClientRect();
         const chibiRect = chibi.getBoundingClientRect();
 
-        // Eating condition
         if (foodY >= window.innerHeight - 150 && Math.abs(foodRect.left - chibiRect.left) < 60) {
           score++;
           scoreDisplay.innerText = "Score: " + score;
           resetFood();
-          eatSound.play();
         }
 
-        // Missed food
         if (foodY > window.innerHeight) {
+          missedFoods++;
+          if (missedFoods >= 3) {
+            gameOver();
+          }
           resetFood();
         }
       }, 30);
@@ -269,31 +212,25 @@
       food.style.left = Math.random() * (window.innerWidth - 50) + "px";
     }
 
-    // Move character with A and D keys
+    function gameOver() {
+      gameOverScreen.style.display = "block";
+      finalScore.innerText = score;
+    }
+
     document.addEventListener("keydown", (event) => {
       const chibiSpeed = 12;
 
-      if (event.key === "a") {
+      if (event.key === "a" || event.key === "ArrowLeft") {
         chibiX -= chibiSpeed;
       }
-      if (event.key === "d") {
+      if (event.key === "d" || event.key === "ArrowRight") {
         chibiX += chibiSpeed;
       }
 
-      // Keep character within screen bounds
       chibiX = Math.max(0, Math.min(window.innerWidth - 120, chibiX));
-
-      // Update the chibi's position
       chibi.style.left = chibiX + "px";
     });
-
-    // Exit to main screen
-    exitButton.addEventListener("click", () => {
-      gameScreen.style.display = "none";
-      document.getElementById("title-screen").style.display = "block";
-      score = 0;
-      scoreDisplay.innerText = "Score: 0";
-    });
   </script>
+
 </body>
 </html>
